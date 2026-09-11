@@ -16,7 +16,7 @@ const Footer = () => {
                 DS
               </span>
 
-              <span>Dev Stack</span>
+              <span>DevOPS Stack</span>
             </a>
 
             <p className="mt-4 max-w-md text-sm leading-5 text-slate-500">
