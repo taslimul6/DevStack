@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import AvailableTech from "./AvailableTech";
 import SelectedCard from "./SelectedCard";
 
@@ -7,9 +7,11 @@ export default function Technologies() {
 
     const techPromise = async()=>{
         const res = await fetch("data.json");
-        const data = res.json();
+        const data = await res.json();
         return data;
     }
+
+    const [selectedTech, setSelectedTech] = useState([]);
 
     return (
         <div className="max-w-7xl mx-auto px-6 py-10">
@@ -21,13 +23,13 @@ export default function Technologies() {
 
                 <div className="col-span-3">
                     <Suspense fallback="Loading......">
-                        <AvailableTech techPromise={techPromise()} />   
+                        <AvailableTech techPromise={techPromise()} selectedTech= {selectedTech} setSelectedTech={setSelectedTech}/>   
                     
                     </Suspense>
                 </div>
                 
                 <div className="col-span-1">
-                    <SelectedCard />
+                    <SelectedCard selectedTech= {selectedTech} setSelectedTech={setSelectedTech} />
 
                 </div>
                 
