@@ -1,3 +1,5 @@
+
+
 const Footer = () => {
   return (
     <footer className="w-full bg-white">
@@ -6,16 +8,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-10 text-center md:grid-cols-4 md:text-left">
 
           <div className="md:col-span-2">
-            <a
-              href="#home"
-              className="flex items-center justify-center gap-2 text-lg font-semibold text-slate-900 md:justify-start"
-            >
-              <span className="flex h-5 w-5 items-center justify-center rounded bg-gradient-to-br from-purple-500 to-pink-500 text-[10px] font-bold text-white">
-                DS
-              </span>
-
-              <span>DevOPS Stack</span>
-            </a>
+            
+            <img className="w-50 mx-auto md:w-50 md:mx-0" src="logo-text.png" alt="" />
 
             <p className="mt-4 max-w-md mx-auto text-sm leading-5 text-slate-500 md:mx-0">
               Curated tools, technologies, and resources for developers
