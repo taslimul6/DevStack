@@ -2,7 +2,7 @@ import { use } from "react";
 import type { Dispatch, SetStateAction } from "react";
 import TechCard from "./Available/TechCard";
 import type { ITech } from "../../type";
-import { toast } from "react-toastify";
+import { Bounce, toast } from "react-toastify";
 
 interface AvailableTechProps {
   techPromise: Promise<ITech[]>;
@@ -16,8 +16,10 @@ const AvailableTech = ({
   selectedTech,
 }: AvailableTechProps) => {
 
-  const notify = (tech: ITech) =>
+  const notifySuccess = (tech: ITech) =>
     toast(`${tech.name} Added to Stack List Successfully`);
+
+
 
   const techData = use(techPromise);
 
@@ -25,7 +27,8 @@ const AvailableTech = ({
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
       {techData.map((tech) => (
         <TechCard
-          notify={notify}
+       
+        notifySuccess={notifySuccess}
           key={tech.id}
           tech={tech}
           selectedTech={selectedTech}

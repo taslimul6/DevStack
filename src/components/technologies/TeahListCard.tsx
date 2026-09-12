@@ -5,15 +5,17 @@ import type { Dispatch, SetStateAction } from "react";
 
 
 
-const TeahListCard = ({tech, selectedTech, setSelectedTech}: {
+const TeahListCard = ({tech, selectedTech, setSelectedTech, notifydanger}: {
     tech: ITech;
     selectedTech: ITech[];
     setSelectedTech: Dispatch<SetStateAction<ITech[]>>;
+    
 }) => {
 
     const handleSeletedCard= (tech: ITech)=>{
         
         setSelectedTech(selectedTech.filter(f=>f != tech));
+        notifydanger(tech);
     }
 
     

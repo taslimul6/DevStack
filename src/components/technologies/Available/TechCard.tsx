@@ -8,14 +8,16 @@ interface TechCardProps {
   tech: ITech;
   setSelectedTech: Dispatch<SetStateAction<ITech[]>>;
   selectedTech: ITech[];
-  notify: (tech: ITech) => void;
+  notifySuccess: (tech: ITech) => void;
+ 
 }
 
 export default function TechCard({
   tech,
   setSelectedTech,
   selectedTech,
-  notify
+  notifySuccess,
+  
 }: TechCardProps){
 
   
@@ -24,11 +26,12 @@ export default function TechCard({
 
     if (!isAdded) {
       setSelectedTech([...selectedTech, tech]);
-      notify(tech);
+      notifySuccess(tech);
     } else {
       setSelectedTech(
         selectedTech.filter((t) => t.id !== tech.id)
-      );
+
+      )
     }
   };
 
@@ -64,13 +67,13 @@ export default function TechCard({
           onClick={() => handleBtn(tech)}
           className={`btn btn-sm ${
             selectedTech.some((t) => t.id === tech.id)
-              ? "btn-error"
+              ? "btn-disabled"
               : "btn-neutral"
           } w-full mt-3`}
         >
           {selectedTech.some((t) => t.id === tech.id)
-            ? "Already Added..."
-            : "Add to Stack..."}
+            ? "Already Added"
+            : "Add to Stack"}
         </button>
         
       </div>
