@@ -7,14 +7,14 @@ export default function Nav() {
   <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 
      <img
-      src="/src/assets/hamBurger.png"
+      src="/hamBurger.png"
       alt="Menu"
       className="h-6 w-6 md:hidden"
     />
   
     <a href="#home" className="shrink-0 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
       <img
-        src="/src/assets/logo-text.png"
+        src="/logo-text.png"
         className="h-8 w-auto"
       />
     </a>
