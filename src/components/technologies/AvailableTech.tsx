@@ -1,5 +1,5 @@
 import { use } from "react";
-import TechCard from "./TechCard";
+import TechCard from "./Available/TechCard";
 
 
 const AvailableTech = ({techPromise , setSelectedTech, selectedTech }) => {

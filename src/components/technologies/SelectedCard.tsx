@@ -18,7 +18,7 @@ const SelectedCard = ({selectedTech, setSelectedTech}) => {
         <EmptyCard />
       ) : selectedTech.map(tech=> (<TechListCard key={tech.id} tech={tech} selectedTech={selectedTech} setSelectedTech={setSelectedTech} />))}
 
-      {selectedTech.length>0 ? ( <button className="btn btn-outline btn-error btn-wide mt-5"> Remove All</button>) : ""}
+      {selectedTech.length>0 ? ( <button onClick={()=> setSelectedTech([])} className="btn btn-outline btn-error btn-wide mt-5"> Remove All</button>) : ""}
 
      
 

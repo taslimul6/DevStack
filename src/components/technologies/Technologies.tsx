@@ -5,11 +5,17 @@ import SelectedCard from "./SelectedCard";
 
 export default function Technologies() {
 
-    const techPromise = async()=>{
+    const technologyPromise = async()=>{
         const res = await fetch("data.json");
         const data = await res.json();
         return data;
     }
+
+  
+
+    const [techPromise] = useState(technologyPromise())
+
+
 
     const [selectedTech, setSelectedTech] = useState([]);
 
@@ -23,7 +29,7 @@ export default function Technologies() {
 
                 <div className="col-span-3">
                     <Suspense fallback="Loading......">
-                        <AvailableTech techPromise={techPromise()} selectedTech= {selectedTech} setSelectedTech={setSelectedTech}/>   
+                        <AvailableTech techPromise={techPromise} selectedTech= {selectedTech} setSelectedTech={setSelectedTech}/>   
                     
                     </Suspense>
                 </div>

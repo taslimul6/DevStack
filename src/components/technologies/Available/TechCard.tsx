@@ -14,24 +14,18 @@ export default function TechCard({
 
     const [added , setAdded] = useState(false);
 
-    const handleBtn = (tech) =>{
+    const handleBtn = (tech: ITech) => {
+  const isAdded = selectedTech.some((t) => t.id === tech.id);
 
-
-        if(!added){
-            setAdded(!added);
-            setSelectedTech([...selectedTech , tech ])
-        }
-        else{
-            setAdded(!added);
-           setSelectedTech(
-            selectedTech.filter((t) => t.id !== tech.id)
-                 )
-        }
-        
-
-    
-    }
-    
+  if (!isAdded) {
+    setSelectedTech([...selectedTech, tech]);
+  } else {
+    setSelectedTech(
+      selectedTech.filter((t) => t.id !== tech.id)
+    );
+  }
+};
+    console.log(selectedTech.includes(tech))
 
   return (
 
@@ -59,8 +53,11 @@ export default function TechCard({
             </span>
         </div>
 
-        <button onClick={()=>handleBtn(tech)} className={  `btn btn-sm ${added ?"btn-error" : "btn-neutral"} w-full mt-3`}>
-            { added ? "Already Added" : "Add to Stack"}
+        <button onClick={()=>handleBtn(tech)} className={  `btn btn-sm ${selectedTech.some((t) => t.id === tech.id) ?"btn-error" : "btn-neutral"} w-full mt-3`}>
+            { selectedTech.some((t) => t.id === tech.id) ? "Already Added..." : "Add to Stack..."}
+            
+
+            
         </button>
         </div>
     </div>
