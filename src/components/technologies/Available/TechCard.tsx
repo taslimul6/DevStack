@@ -1,65 +1,78 @@
-import { FaReact, FaStar } from "react-icons/fa";
-import type { ITech } from "../../type";
-import { useState, type Dispatch, type SetStateAction } from "react";
+
+import { FaStar } from "react-icons/fa";
+import type { ITech } from "../../../type";
+import type { Dispatch, SetStateAction } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function TechCard({
   tech,
   setSelectedTech,
   selectedTech,
+  notify
 }: {
   tech: ITech;
   selectedTech: ITech[];
-    setSelectedTech: Dispatch<SetStateAction<ITech[]>>
+  setSelectedTech: Dispatch<SetStateAction<ITech[]>>;
+  
 }) {
 
-    const [added , setAdded] = useState(false);
+  
+  const handleBtn = (tech: ITech) => {
+    const isAdded = selectedTech.some((t) => t.id === tech.id);
 
-    const handleBtn = (tech: ITech) => {
-  const isAdded = selectedTech.some((t) => t.id === tech.id);
+    if (!isAdded) {
+      setSelectedTech([...selectedTech, tech]);
+      notify(tech);
+    } else {
+      setSelectedTech(
+        selectedTech.filter((t) => t.id !== tech.id)
+      );
+    }
+  };
 
-  if (!isAdded) {
-    setSelectedTech([...selectedTech, tech]);
-  } else {
-    setSelectedTech(
-      selectedTech.filter((t) => t.id !== tech.id)
-    );
-  }
-};
-    console.log(selectedTech.includes(tech))
+  
 
   return (
-
+    
     <div className="">
-
-        <div className="card bg-base-100 border border-base-200 rounded-xl shadow-sm p-4">
-      
+      <div className="card bg-base-100 border border-base-200 rounded-xl shadow-sm p-4">
         <div className="flex justify-between items-start">
-            <img src={tech.icon} alt="" width="50" />
-            <span className="badge badge-info badge-soft text-xs">{tech.badge}</span>
+          <img src={tech.icon} alt="" width="50" />
+          <span className="badge badge-info badge-soft text-xs">
+            {tech.badge}
+          </span>
         </div>
 
         <h3 className="text-lg font-semibold mt-4">{tech.name}</h3>
 
         <p className="text-xs text-gray-500 leading-5 mt-1">
-            {tech.description}
+          {tech.description}
         </p>
 
         <div className="flex items-center gap-2 mt-3 text-[10px]">
-            <span className="badge badge-ghost badge-sm">{tech.category}</span>
-            <span className="text-gray-500">{tech.difficulty}</span>
-            <span className="flex items-center gap-1 ml-auto">
+          <span className="badge badge-ghost badge-sm">{tech.category}</span>
+          <span className="text-gray-500">{tech.difficulty}</span>
+          <span className="flex items-center gap-1 ml-auto">
             <FaStar className="text-yellow-400" />
             {tech.rating}
-            </span>
+          </span>
         </div>
 
-        <button onClick={()=>handleBtn(tech)} className={  `btn btn-sm ${selectedTech.some((t) => t.id === tech.id) ?"btn-error" : "btn-neutral"} w-full mt-3`}>
-            { selectedTech.some((t) => t.id === tech.id) ? "Already Added..." : "Add to Stack..."}
-            
-
-            
+        <button
+          onClick={() => handleBtn(tech)}
+          className={`btn btn-sm ${
+            selectedTech.some((t) => t.id === tech.id)
+              ? "btn-error"
+              : "btn-neutral"
+          } w-full mt-3`}
+        >
+          {selectedTech.some((t) => t.id === tech.id)
+            ? "Already Added..."
+            : "Add to Stack..."}
         </button>
-        </div>
+        
+      </div>
     </div>
   );
 }
+

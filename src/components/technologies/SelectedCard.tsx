@@ -1,10 +1,17 @@
+
+
 import EmptyCard from "./EmptyCard";
 import TechListCard from "./TeahListCard";
+import type { ITech } from "../../type";
+import type { Dispatch, SetStateAction } from "react";
 
 
-const SelectedCard = ({selectedTech, setSelectedTech}) => {
+const SelectedCard = ({selectedTech, setSelectedTech}: {
+    selectedTech: ITech[];
+    setSelectedTech: Dispatch<SetStateAction<ITech[]>>;
+}) => {
      return (
-    <div className="w-[282px] rounded-[14px] border border-gray-200 bg-white p-5 shadow-sm mt-10 ml-7">
+    <div className="w-full sm:w-[282px] rounded-[14px] border border-gray-200 bg-white p-5 shadow-sm mt-10 ml-0 sm:ml-7">
       <h2 className="text-[16px] font-semibold leading-5 text-[#0F172A]">
         Your Stack
       </h2>
@@ -33,3 +40,4 @@ const SelectedCard = ({selectedTech, setSelectedTech}) => {
 };
 
 export default SelectedCard;
+

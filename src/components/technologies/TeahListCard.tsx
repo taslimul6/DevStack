@@ -1,10 +1,17 @@
+
 import { RxCross2 } from "react-icons/rx";
+import type { ITech } from "../../type";
+import type { Dispatch, SetStateAction } from "react";
 
 
 
-const TeahListCard = ({tech, selectedTech, setSelectedTech}) => {
+const TeahListCard = ({tech, selectedTech, setSelectedTech}: {
+    tech: ITech;
+    selectedTech: ITech[];
+    setSelectedTech: Dispatch<SetStateAction<ITech[]>>;
+}) => {
 
-    const handleSeletedCard= (tech)=>{
+    const handleSeletedCard= (tech: ITech)=>{
         
         setSelectedTech(selectedTech.filter(f=>f != tech));
     }
@@ -40,3 +47,4 @@ const TeahListCard = ({tech, selectedTech, setSelectedTech}) => {
 };
 
 export default TeahListCard;
+
