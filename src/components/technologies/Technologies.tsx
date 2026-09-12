@@ -1,6 +1,7 @@
 import { Suspense, useState } from "react";
 import AvailableTech from "./AvailableTech";
 import SelectedCard from "./SelectedCard";
+import type { ITech } from "../../type";
 
 
 export default function Technologies() {
@@ -17,7 +18,7 @@ export default function Technologies() {
 
 
 
-    const [selectedTech, setSelectedTech] = useState([]);
+    const [selectedTech, setSelectedTech] = useState<ITech[]>([]);
 
     return (
         <div className="max-w-7xl mx-auto px-6 py-10">

@@ -1,20 +1,22 @@
 
+
 import { FaStar } from "react-icons/fa";
 import type { ITech } from "../../../type";
 import type { Dispatch, SetStateAction } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+
+interface TechCardProps {
+  tech: ITech;
+  setSelectedTech: Dispatch<SetStateAction<ITech[]>>;
+  selectedTech: ITech[];
+  notify: (tech: ITech) => void;
+}
 
 export default function TechCard({
   tech,
   setSelectedTech,
   selectedTech,
   notify
-}: {
-  tech: ITech;
-  selectedTech: ITech[];
-  setSelectedTech: Dispatch<SetStateAction<ITech[]>>;
-  
-}) {
+}: TechCardProps){
 
   
   const handleBtn = (tech: ITech) => {
@@ -75,4 +77,3 @@ export default function TechCard({
     </div>
   );
 }
-

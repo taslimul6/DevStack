@@ -1,7 +1,7 @@
 
 import bannarStack from "../assets/banner-stack.png";
 
-const Hero = (): JSX.Element => {
+const Hero = () => {
   return (
     <section className="w-full overflow-hidden bg-white">
       <div className="mx-auto flex min-h-[520px] max-w-7xl flex-col items-center px-6 py-12 sm:py-16 lg:flex-row lg:px-8">
