@@ -2,7 +2,7 @@ import { use } from "react";
 import type { Dispatch, SetStateAction } from "react";
 import TechCard from "./Available/TechCard";
 import type { ITech } from "../../type";
-import { Bounce, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 
 interface AvailableTechProps {
   techPromise: Promise<ITech[]>;

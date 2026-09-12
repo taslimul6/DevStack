@@ -91,6 +91,6 @@ Jsx used on React to similify the coding experiance. where a developer can write
 
 6. Conditional randering is render specific html element to ui depends on conditions. like: in our project when a card button clicked we rander the button to blocked. 
 
-7. We can pass data from parent to child using Props.... as react is unidirectional : to send data from child to parent we ned to declare a state on a commmon component that share both by child and parent... using state prop child can manipulate the data and send it from common to the parent.
+7. We can pass data from parent to child using Props.... as react is unidirectional : to send data from child to parent we ned to declare a state on a commmon component that share both by child and parent... using state prop child can manipulate the data and send it from common to the parent. 
 
 

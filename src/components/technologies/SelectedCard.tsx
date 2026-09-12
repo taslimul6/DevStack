@@ -1,10 +1,8 @@
-
-
 import EmptyCard from "./EmptyCard";
 import TechListCard from "./TeahListCard";
 import type { ITech } from "../../type";
 import type { Dispatch, SetStateAction } from "react";
-import { Bounce, toast } from "react-toastify";
+import { Bounce, toast} from "react-toastify";
 
 
 const SelectedCard = ({selectedTech, setSelectedTech}: {
@@ -13,7 +11,7 @@ const SelectedCard = ({selectedTech, setSelectedTech}: {
 }) => {
 
 
-    const notifydanger = (tech: ITech) =>
+    const notifydanger=(tech:ITech) =>
     toast.error(`${tech.name} Removed from Stack List Successfully`, {
           position: "bottom-right",
           autoClose: 5000,
@@ -61,7 +59,7 @@ const SelectedCard = ({selectedTech, setSelectedTech}: {
     
        {selectedTech.length === 0 ? (
         <EmptyCard />
-      ) : selectedTech.map(tech=> (<TechListCard key={tech.id} notifydanger={notifydanger} tech={tech} selectedTech={selectedTech} setSelectedTech={setSelectedTech} />))}
+      ) : selectedTech.map(tech=> (<TechListCard key={tech.id} notifydanger = {notifydanger} tech={tech} selectedTech={selectedTech} setSelectedTech={setSelectedTech} />))}
 
       {selectedTech.length>0 ? ( <button onClick={handleAllremove} className="btn btn-outline btn-error btn-wide mt-5"> Remove All</button>) : ""}
 
@@ -78,4 +76,3 @@ const SelectedCard = ({selectedTech, setSelectedTech}: {
 };
 
 export default SelectedCard;
-

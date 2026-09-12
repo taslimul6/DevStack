@@ -1,7 +1,7 @@
-
 import { RxCross2 } from "react-icons/rx";
 import type { ITech } from "../../type";
 import type { Dispatch, SetStateAction } from "react";
+import type { Id } from "react-toastify";
 
 
 
@@ -9,7 +9,7 @@ const TeahListCard = ({tech, selectedTech, setSelectedTech, notifydanger}: {
     tech: ITech;
     selectedTech: ITech[];
     setSelectedTech: Dispatch<SetStateAction<ITech[]>>;
-    
+    notifydanger: (tech: ITech) => Id;
 }) => {
 
     const handleSeletedCard= (tech: ITech)=>{
@@ -49,4 +49,3 @@ const TeahListCard = ({tech, selectedTech, setSelectedTech, notifydanger}: {
 };
 
 export default TeahListCard;
-
